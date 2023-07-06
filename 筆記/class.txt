@@ -1,0 +1,1 @@
+class先透過類似於funtion的設定模式，以def定義一些子函式，__init__為設定主程式呼叫class時會傳入class的參數設定，接下來的def就是自定義的呼叫函式。
