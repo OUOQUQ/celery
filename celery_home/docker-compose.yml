@@ -1,0 +1,27 @@
+services:
+  flask:
+    build: .
+    container_name: flask
+    networks:
+      - net
+    ports:
+      - 5000:5000
+    command: "python app.py"
+  cache:
+    image: redis
+    container_name: docker_redis
+    networks:
+      - net
+    ports:
+      - 6379:6379
+  celery:
+    image: celery_home-backend
+    container_name: celery
+    networks:
+      - net
+    command: celery -A celery_test worker --loglevel=info
+
+networks:
+  net:
+    name: frnet
+    driver: bridge
